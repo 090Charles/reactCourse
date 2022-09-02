@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React CDN</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const container = document.querySelector("#root")
+      const root = ReactDOM.createRoot(container)
+      //Anteriormente se usan clases
+      class Listado extends React.Component {
+        //aqui se declaran las variables y demas cosas que se quieren utiilizar
+        // constructor(){
+        //   this.nombre:'';
+        // }
+        render(){
+          return(
+            <ol>
+              <li>Hola</li>
+              <li>Elemento 2</li>
+              <li>Aprendiendo React</li>
+              <li>Usando JSX</li>
+            </ol>
+          );
+        }
+      }
+      //Ahora se utilizan componente tipo funciones
+      function Listadofn(){
+        return(
+            <ol>
+              <li>Hola Creando funtional componentes</li>
+              <li>Elemento 2</li>
+              <li>Aprendiendo React</li>
+              <li>Usando JSX</li>
+            </ol>
+          );
+      }
+
+        //Ahora se utilizan componente tipo funciones
+        const Listadofnconst = ()=>{
+        return(
+            <ol>
+              <li>Hola Creando funtional componentes arrow</li>
+              <li>Elemento 2</li>
+              <li>Aprendiendo React</li>
+              <li>Usando JSX</li>
+            </ol>
+          );
+      }
+
+
+      root.render(
+        // //Forma manual de usar React sin JSX
+        // React.createElement(
+          //   "div",
+          //   null,
+          //   React.createElement("h1",null,"React es lo maximo"),
+          //   React.createElement("h2",null,"soy un h2"),
+          //   React.createElement("h2",null,"soy un h3"),
+          //   React.createElement("h3",null,"soy un h4"),
+          //   React.createElement("h4",null,"soy un h5"),          
+          //   )
+          // //Forma manual de usar React sin JSX FIN
+          // //Forma de usar React con JSX
+        // <div>
+        //   <ol>
+          //     <li>Hola</li>
+          //     <li>Elemento 2</li>
+          //     <li>Aprendiendo React</li>
+          //     <li>Usando JSX</li>
+          //   </ol>
+          // </div>
+          // //Forma de usar React con JSX FIN
+          // //Forma de usar React con componentes
+          <>
+            <Listado/>
+            <Listadofn/>
+            <Listadofnconst/>
+          </>
+        // //Forma de usar React con FIN
+
+      );
+    </script>
+</body>
+</html>
